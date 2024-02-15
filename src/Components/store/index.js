@@ -7,15 +7,18 @@ const initialState = {
 };
 
 function accountReducer(state = initialState, action) {
-  if (action.type == "deposit") {
-    return { ...state, balance: state.balance + action.payload };
-  } else if (action.type == "withdraw") {
-    return { ...state, balance: state.balance - action.payload };
-  } else if (action.type == "mobileupdate") {
-    return { ...state, mobile: action.payload };
-  } else if (action.type == "nameupdate") {
-    return { ...state, fullName: action.payload };
-  } else return { ...state };
+  switch (action.type) {
+    case "deposit":
+      return { ...state, balance: state.balance + action.payload };
+    case "withdraw":
+      return { ...state, balance: state.balance - action.payload };
+    case "mobileupdate":
+      return { ...state, mobile: action.payload };
+    case "nameupdate":
+      return { ...state, fullName: action.payload };
+    default:
+      return { ...state };
+  }
 }
 
 const store = createStore(accountReducer);

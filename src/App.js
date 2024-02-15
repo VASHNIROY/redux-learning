@@ -1,14 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
-import store from "./Components/store";
+import "./Components/store";
 
 function App() {
-  return (
-    <>
-      Hello
-      <store />
-    </>
-  );
+  return <>Hello</>;
 }
 
 export default App;
